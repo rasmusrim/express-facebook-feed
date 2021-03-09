@@ -14,6 +14,6 @@ Cache is renewed once every hour.
 ## The widget
 `/widget` returns a HTML, JS and CSS file which can be loaded in an iframe to display the posts:
 
-
+If you need to make changes to HTML, JS or CSS, edit the file `widget.html`.
 
 
