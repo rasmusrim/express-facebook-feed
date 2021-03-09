@@ -1,0 +1,41 @@
+<div id="cloudberries-facebook-feed"></div>
+
+<script>
+    fetch('http://facebookfeed-env.eba-vpqyw7s7.eu-north-1.elasticbeanstalk.com//').then(response => response.json()).then(response => {
+        response.forEach(post => {
+            const postWrapper = document.createElement("a");
+            postWrapper.classList.add("post")
+            postWrapper.href = 'https://facebook.com/' + post.id;
+
+            const image = document.createElement("img");
+            image.src = post.image.src;
+
+            const text = document.createElement("div");
+            text.innerHTML = post.message;
+
+            postWrapper.append(image)
+            postWrapper.append(text)
+
+            document.getElementById("cloudberries-facebook-feed").append(postWrapper)
+        })
+    })
+</script>
+
+<style>
+    #cloudberries-facebook-feed {
+        text-align: center;
+        font-family: Arial,Helvetica,sans-serif;
+    }
+    #cloudberries-facebook-feed a {
+        text-decoration: none;
+        color: black;
+        display: block;
+
+    }
+    #cloudberries-facebook-feed .post {
+        margin-bottom: 40px;
+    }
+    #cloudberries-facebook-feed img {
+        max-width: 500px;
+    }
+</style>
