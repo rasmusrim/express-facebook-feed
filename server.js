@@ -4,7 +4,7 @@ const port = 8080;
 const cors = require("cors");
 const fs = require('fs');
 
-var corsOptions = {
+const corsOptions = {
   origin: "https://www.cloudberries.no",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
@@ -20,7 +20,7 @@ setInterval(() => resetCache(), 60 * 60 * 1000);
 
 app.get("/widget", (req,res) => {
   res.type('text/html');
-  res.send(fs.readFileSync('../frontend/widget.html'))
+  res.send(fs.readFileSync('widget.html'))
 });
 
 
